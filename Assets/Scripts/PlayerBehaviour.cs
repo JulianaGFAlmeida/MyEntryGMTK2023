@@ -28,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis(horizontalAxis) * moveSpeed;
 
@@ -55,17 +55,26 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.layer == 8)
         {
             isJumping = false;
         }
         else if (amITheKiller && collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
+        } if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(collision.gameObject.transform,true);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = null;
+        }
+    }
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Finish"))
         {
