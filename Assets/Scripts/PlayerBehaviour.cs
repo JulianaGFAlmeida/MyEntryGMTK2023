@@ -18,8 +18,6 @@ public class PlayerBehaviour : MonoBehaviour
     private bool amITheKiller=false;
     private bool isJumping = false; 
     
-    [SerializeField]
-    private LayerMask worldLayer;
 
     private Rigidbody2D rb;
     private bool isFacingRight = true;
