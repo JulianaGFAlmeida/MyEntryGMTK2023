@@ -10,6 +10,8 @@ public class CounterBehaviour : MonoBehaviour
     private float currentTime=0;
     private Text countdownText;
     private bool isTimerRunning = false;
+    [SerializeField]
+    private DemonTransformerManager dtm;
 
     private void Start()
     {
@@ -28,13 +30,15 @@ public class CounterBehaviour : MonoBehaviour
         currentTime -= Time.deltaTime;
 
         // Display the time remaining in the UI text element
-        countdownText.text = currentTime.ToString("0");
+        countdownText.text = "Timer: "+currentTime.ToString("0");
 
         // Check if the countdown has reached zero
         if (currentTime <= 0)
         {
             currentTime = 0;
             isTimerRunning = false;
+            countdownText.text = "";
+            dtm.ResetAmountCollected();
             // Perform any actions you need when the timer reaches zero
         }
     }

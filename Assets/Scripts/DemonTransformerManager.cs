@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DemonTransformerManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class DemonTransformerManager : MonoBehaviour
     private int amountCollected;
     [SerializeField]
     private CounterBehaviour cb;
+    [SerializeField]
+    private Text itensCollected;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class DemonTransformerManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Transformer"))
         {
             amountCollected++;
+            itensCollected.text = "Itens: " + amountCollected.ToString("0");
             Debug.Log(amountCollected);
             Destroy(collision.gameObject);
             if(CheckIfEnough())
@@ -41,5 +45,6 @@ public class DemonTransformerManager : MonoBehaviour
     public void ResetAmountCollected()
     {
         amountCollected = 0;
+        itensCollected.text = "Itens: " + amountCollected.ToString("0");
     }
 }
