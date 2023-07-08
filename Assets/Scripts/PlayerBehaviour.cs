@@ -17,6 +17,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private bool amITheKiller=false;
     private bool isJumping = false; 
+    
+    [SerializeField]
+    private LayerMask worldLayer;
 
     private Rigidbody2D rb;
     private bool isFacingRight = true;
@@ -29,16 +32,18 @@ public class PlayerBehaviour : MonoBehaviour
 
         positionBeforeJumping = this.gameObject.transform.position;
     }
+    private void Update() {
+
+        if (Input.GetButtonDown(jumpButton) && !isJumping)
+        {
+            Jump();
+        }
+        
+        
+    }
 
     private void FixedUpdate()
     {
-        Vector3 rayPosition = transform.position;
-        rayPosition.y-=0.4f;
-        RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.up);
-        Debug.DrawRay(rayPosition,  Vector2.up, Color.magenta);
-        if(hit.collider.IsTouchingLayers(8)){
-            isJumping=false;
-        }
         float moveHorizontal = Input.GetAxis(horizontalAxis) * moveSpeed;
 
 
@@ -49,10 +54,8 @@ public class PlayerBehaviour : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetButton(jumpButton) && !isJumping)
-        {
-            Jump();
-        }
+    
+
     }
 
     private void Jump()
