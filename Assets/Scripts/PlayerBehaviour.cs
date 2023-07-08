@@ -42,7 +42,7 @@ public class PlayerBehaviour : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetButtonDown(jumpButton) && !isJumping)
+        if (Input.GetButton(jumpButton) && !isJumping)
         {
             Jump();
         }
