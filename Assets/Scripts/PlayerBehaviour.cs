@@ -32,6 +32,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector3 rayPosition = transform.position;
+        rayPosition.y-=0.4f;
+        RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.up);
+        Debug.DrawRay(rayPosition,  Vector2.up, Color.magenta);
+        if(hit.collider.IsTouchingLayers(8)){
+            isJumping=false;
+        }
         float moveHorizontal = Input.GetAxis(horizontalAxis) * moveSpeed;
 
 
