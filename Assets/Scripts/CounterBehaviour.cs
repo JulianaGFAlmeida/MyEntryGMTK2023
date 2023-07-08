@@ -12,11 +12,14 @@ public class CounterBehaviour : MonoBehaviour
     private bool isTimerRunning = false;
     [SerializeField]
     private DemonTransformerManager dtm;
+    private PlayerBehaviour pb;
+    [SerializeField]
+    private PlayerBehaviour otherPb;
 
     private void Start()
     {
         countdownText = GetComponent<Text>();
-       
+        pb = dtm.gameObject.GetComponent<PlayerBehaviour>();
     }
 
     private void Update()
@@ -39,6 +42,8 @@ public class CounterBehaviour : MonoBehaviour
             isTimerRunning = false;
             countdownText.text = "";
             dtm.ResetAmountCollected();
+            pb.BackToNormal();
+            otherPb.SetAmITheKiller(true);
             // Perform any actions you need when the timer reaches zero
         }
     }
@@ -46,5 +51,7 @@ public class CounterBehaviour : MonoBehaviour
     {
         currentTime = totalTime;
         isTimerRunning = true;
+        pb.DemonBuff();
+        otherPb.SetAmITheKiller(false);
     }
 }

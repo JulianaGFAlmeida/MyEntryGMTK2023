@@ -26,6 +26,8 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        positionBeforeJumping = this.gameObject.transform.position;
     }
 
     private void FixedUpdate()
@@ -48,6 +50,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Jump()
     {
+
         positionBeforeJumping = this.gameObject.transform.position;
         rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         isJumping = true;
@@ -73,6 +76,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.parent = null;
         }
+    
     }
         private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -88,5 +92,25 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void DemonBuff()
+    {
+        SetAmITheKiller(true);
+        moveSpeed *= 1.5f;
+        jumpForce *= 1.25f;
+    }
+
+    public void BackToNormal()
+    {
+        SetAmITheKiller(false);
+        moveSpeed /= 1.5f;
+        jumpForce /= 1.25f;
+
+    }
+
+    public void SetAmITheKiller(bool amI)
+    {
+        amITheKiller = amI;
     }
 }
