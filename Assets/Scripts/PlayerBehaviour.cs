@@ -1,0 +1,83 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerBehaviour : MonoBehaviour
+{
+    [SerializeField]
+    [Range(0f,20f)]
+    private float moveSpeed = 5f;
+    [SerializeField]
+    [Range(0f, 20f)]
+    private float jumpForce = 5f;
+    [SerializeField]
+    private string horizontalAxis = "Horizontal";
+    [SerializeField]
+    private string jumpButton = "Jump";
+    [SerializeField]
+    private bool amITheKiller=false;
+    private bool isJumping = false; 
+
+    private Rigidbody2D rb;
+    private bool isFacingRight = true;
+    private Vector3 positionBeforeJumping;
+
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        float moveHorizontal = Input.GetAxis(horizontalAxis) * moveSpeed;
+
+
+        rb.velocity = new Vector2(moveHorizontal, rb.velocity.y);
+
+        if ((moveHorizontal > 0 && !isFacingRight) || (moveHorizontal < 0 && isFacingRight))
+        {
+            Flip();
+        }
+
+        if (Input.GetButtonDown(jumpButton) && !isJumping)
+        {
+            Jump();
+        }
+    }
+
+    private void Jump()
+    {
+        positionBeforeJumping = this.gameObject.transform.position;
+        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        isJumping = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isJumping = false;
+        }
+        else if (amITheKiller && collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            this.transform.position = positionBeforeJumping;
+        }
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+}
