@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DemonTransformerManager : MonoBehaviour
 {
     [SerializeField]
-    [Range(5,10)]
+    //[Range(5,10)]
     private int amountNeeded=5;
     private int amountCollected;
     [SerializeField]
@@ -56,11 +56,12 @@ public class DemonTransformerManager : MonoBehaviour
     {
         amountCollected = 0;
         itensCollected.text = "Itens: " + amountCollected.ToString("0");
+        //Instantiate(collectables,collectablesParent);
         StartCoroutine(SpawnItensAgain());
     }
 
     IEnumerator SpawnItensAgain(){
-        
+        Debug.Log("entrei aqui");
         yield return new WaitForSeconds(5);
         if(GameObject.Find("Collectables")){
             Destroy(GameObject.Find("Collectables"));

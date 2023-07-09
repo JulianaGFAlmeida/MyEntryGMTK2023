@@ -30,6 +30,10 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     private bool isFacingRight = true;
     private Vector3 positionBeforeJumping;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private SpriteRenderer sr;
 
 
     private void Start()
@@ -44,6 +48,14 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Jump();
         }
+              if(animator){
+                 if(Mathf.Abs(Input.GetAxis(horizontalAxis)) > 0){
+            animator.SetBool("isMoving",true);
+        }else{
+            animator.SetBool("isMoving",false);
+
+        }
+              }
         
         
     }
@@ -51,7 +63,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis(horizontalAxis) * moveSpeed;
-
+     
 
         rb.velocity = new Vector2(moveHorizontal, rb.velocity.y);
 
@@ -113,6 +125,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void DemonBuff()
     {
+        sr.color = Color.red;
         gsm.trocarAudio(1);
         SetAmITheKiller(true);
         moveSpeed *= 1.5f;
@@ -121,6 +134,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void BackToNormal()
     {
+        sr.color = Color.white;
         gsm.trocarAudio(0);
         SetAmITheKiller(false);
         moveSpeed /= 1.5f;
