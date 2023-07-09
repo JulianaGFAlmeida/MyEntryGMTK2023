@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4732643379567876184}
   - component: {fileID: 4732643378784269591}
   - component: {fileID: 4732643378784269590}
+  - component: {fileID: 1945510059}
   m_Layer: 0
   m_Name: Demon Transformer (4)
   m_TagString: Transformer
@@ -144,6 +145,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1945510059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732643378784269593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}
 --- !u!1 &4732643379241581725
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +170,7 @@ GameObject:
   - component: {fileID: 4732643378514433406}
   - component: {fileID: 4732643379241581723}
   - component: {fileID: 4732643379241581722}
+  - component: {fileID: 481311840}
   m_Layer: 0
   m_Name: Demon Transformer
   m_TagString: Transformer
@@ -252,6 +268,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &481311840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732643379241581725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}
 --- !u!1 &4732643379422647731
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +293,7 @@ GameObject:
   - component: {fileID: 4732643380431383484}
   - component: {fileID: 4732643379422647729}
   - component: {fileID: 4732643379422647728}
+  - component: {fileID: 796501893}
   m_Layer: 0
   m_Name: Demon Transformer (2)
   m_TagString: Transformer
@@ -360,6 +391,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &796501893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732643379422647731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}
 --- !u!1 &4732643379833353870
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +416,7 @@ GameObject:
   - component: {fileID: 4732643379529993921}
   - component: {fileID: 4732643379833353868}
   - component: {fileID: 4732643379833353871}
+  - component: {fileID: 1332400239}
   m_Layer: 0
   m_Name: Demon Transformer (1)
   m_TagString: Transformer
@@ -468,6 +514,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1332400239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732643379833353870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}
 --- !u!1 &4732643379989052223
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +539,7 @@ GameObject:
   - component: {fileID: 4732643380576825289}
   - component: {fileID: 4732643379989052221}
   - component: {fileID: 4732643379989052220}
+  - component: {fileID: 787522669}
   m_Layer: 0
   m_Name: Demon Transformer (3)
   m_TagString: Transformer
@@ -576,6 +637,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &787522669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732643379989052223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}
 --- !u!1 &6589006069101443127
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +662,7 @@ GameObject:
   - component: {fileID: 9169457652542163203}
   - component: {fileID: 8052107919009916477}
   - component: {fileID: 8189677043466913671}
+  - component: {fileID: 1565432750}
   m_Layer: 0
   m_Name: Demon Transformer (4)
   m_TagString: Transformer
@@ -684,3 +760,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1565432750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589006069101443127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e07bc988bf2e84ab525dcfeaa13f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gsm: {fileID: 0}
+  collectedSFX: {fileID: 8300000, guid: 14b7bf580b8bc92449ea6b1a334c7888, type: 3}

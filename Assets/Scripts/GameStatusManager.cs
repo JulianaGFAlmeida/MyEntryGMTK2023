@@ -25,7 +25,8 @@ public class GameStatusManager : MonoBehaviour
         if( winner.text  == ""){
             winner.text =  (player == 0) ?  "BEAST WINS" : "HUNTER WINS";
             bgsSource.Stop();
-            playSFX(victoryAudio);
+            bgsSource.clip = victoryAudio;
+            bgsSource.Play();
         restartButton.SetActive(true);
         }
     }
@@ -41,7 +42,7 @@ public class GameStatusManager : MonoBehaviour
     }
 
     public void playSFX(AudioClip audioClip, float time=0){
-        StopAllCoroutines();
+       // StopAllCoroutines();
         time = (time <= 0) ? audioClip.length : time;
         StartCoroutine(sfxCoroutine(audioClip,time));
     }

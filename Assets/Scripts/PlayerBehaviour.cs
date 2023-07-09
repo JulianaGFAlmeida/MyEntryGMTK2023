@@ -24,7 +24,8 @@ public class PlayerBehaviour : MonoBehaviour
     private GameStatusManager gsm;
     [SerializeField]
     private AudioClip deathClip;
-
+    [SerializeField]
+    private AudioClip jumpClip;
 
     private Rigidbody2D rb;
     private bool isFacingRight = true;
@@ -65,7 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Jump()
     {
-
+        gsm.playSFX(jumpClip);
         positionBeforeJumping = this.gameObject.transform.position;
         rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         isJumping = true;

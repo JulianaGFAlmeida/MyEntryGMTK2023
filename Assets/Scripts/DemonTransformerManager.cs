@@ -17,12 +17,16 @@ public class DemonTransformerManager : MonoBehaviour
     private Transform collectablesParent;
     [SerializeField]
     private GameObject collectables;
+    [SerializeField]
+    private AudioClip beastAudio;
+    private GameStatusManager gsm;
     
 
     // Start is called before the first frame update
     void Start()
     {
         amountCollected = 0;
+        gsm = GameObject.Find("GameManager").GetComponent<GameStatusManager>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class DemonTransformerManager : MonoBehaviour
             if(CheckIfEnough())
             {
                 cb.StartTimer();
+                gsm.playSFX(beastAudio);
             }
         }
     }

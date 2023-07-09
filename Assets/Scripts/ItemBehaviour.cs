@@ -10,5 +10,7 @@ public class ItemBehaviour : MonoBehaviour
     private AudioClip collectedSFX;
     private void OnDestroy() {
         gsm.playSFX(collectedSFX);
+    
     }
+    
 }
