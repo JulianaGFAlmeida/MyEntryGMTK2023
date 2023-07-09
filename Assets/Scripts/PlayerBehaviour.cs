@@ -17,7 +17,12 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private bool amITheKiller=false;
     private bool isJumping = false; 
-    
+    [SerializeField]
+    [Range(0,1)]
+    private int typePlayer;
+    [SerializeField]
+    private GameStatusManager gsm;
+
 
     private Rigidbody2D rb;
     private bool isFacingRight = true;
@@ -90,7 +95,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Finish"))
         {
-            this.transform.position = positionBeforeJumping;
+            //this.transform.position = positionBeforeJumping;
+            Destroy(this.gameObject);
         }
     }
 
@@ -120,5 +126,9 @@ public class PlayerBehaviour : MonoBehaviour
     public void SetAmITheKiller(bool amI)
     {
         amITheKiller = amI;
+    }
+
+    private void OnDestroy() {
+        gsm.StateWinner(typePlayer);
     }
 }
