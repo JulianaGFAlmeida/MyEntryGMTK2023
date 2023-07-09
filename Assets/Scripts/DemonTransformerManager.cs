@@ -13,6 +13,11 @@ public class DemonTransformerManager : MonoBehaviour
     private CounterBehaviour cb;
     [SerializeField]
     private Text itensCollected;
+    [SerializeField]
+    private Transform collectablesParent;
+    [SerializeField]
+    private GameObject collectables;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -46,5 +51,15 @@ public class DemonTransformerManager : MonoBehaviour
     {
         amountCollected = 0;
         itensCollected.text = "Itens: " + amountCollected.ToString("0");
+        StartCoroutine(SpawnItensAgain());
+    }
+
+    IEnumerator SpawnItensAgain(){
+        
+        yield return new WaitForSeconds(5);
+        if(GameObject.Find("Collectables")){
+            Destroy(GameObject.Find("Collectables"));
+        }
+        Instantiate(collectables,collectablesParent);
     }
 }
