@@ -22,6 +22,8 @@ public class PlayerBehaviour : MonoBehaviour
     private int typePlayer;
     [SerializeField]
     private GameStatusManager gsm;
+    [SerializeField]
+    private AudioClip deathClip;
 
 
     private Rigidbody2D rb;
@@ -110,6 +112,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void DemonBuff()
     {
+        gsm.trocarAudio(1);
         SetAmITheKiller(true);
         moveSpeed *= 1.5f;
         jumpForce *= 1.25f;
@@ -117,6 +120,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void BackToNormal()
     {
+        gsm.trocarAudio(0);
         SetAmITheKiller(false);
         moveSpeed /= 1.5f;
         jumpForce /= 1.25f;
@@ -129,6 +133,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     private void OnDestroy() {
+        gsm.playSFX(deathClip);
         gsm.StateWinner(typePlayer);
     }
 }
